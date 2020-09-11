@@ -1,0 +1,59 @@
+{% extends 'base.html' %} {% block main %}
+
+<h1>Mutiat Fashion Collection</h1>
+
+<hr />
+
+<div>
+  <span>Action</span>
+  &verbar;
+
+  <form action="/new-movie" class="d-inline" method="GET">
+    <input type="submit" class="btn btn-success btn-sm" value="new-movie" />
+  </form>
+
+  <form action="/search" class="d-inline form-inline" method="GET">
+    <input
+      type="text"
+      class="form control"
+      placeholder="search a movie by title"
+      name="q"
+      id=""
+    />
+  </form>
+</div>
+<hr />
+
+<table class="table table-hoven">
+  <thead>
+    <th>#</th>
+    <th>title</th>
+    <th>release year</th>
+    <th>budget</th>
+    <th>cast</th>
+    <th></th>
+  </thead>
+  <tbody>
+    {% for m in movies %}
+    <tr>
+      <td></td>
+      <td>{{m.title}}</td>
+      <td>{{m.year}}</td>
+      <td>{{m.budget}}</td>
+      <td>{{m.cast}}</td>
+      <td>
+        <a href="/edit/{{m.title}}">
+          Edit
+        </a>
+        <a href="/delete/{{m.id}}" class="text-danger">
+          <span class="fa fa-trash"></span>
+          Delete
+        </a>
+      </td>
+    </tr>
+
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

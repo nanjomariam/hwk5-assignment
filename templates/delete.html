@@ -1,0 +1,57 @@
+{% extends 'base.html' %} {% block main %}
+
+
+
+<div class="row">
+    <div class="col-md-4 offset-4">
+        <div class="rounded shadow p-5 mt-5">
+            <h4 class="text-danger">
+                 Are you sure?
+
+            </h4>
+            <p>
+                proceed to delete <strong class="text-danger">
+                    {{movies.title}}</strong> ?
+            </p>
+
+            <form action="/delete/{{movie.id}}" method="post">
+                <input type="submit" value="yes" class="btn btn-danger">
+                <a href="/" class="btn btn-primary">No</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock  %}
+
+            
+            <label for="budget">Budget</label>
+            <input type="text" value="{{movie.budget}}" method="post">
+
+            <label for="title">Movie Title</label>
+            <input type="text" value="{{movie.title}}"  name="budget" id="budget" class="form-control" />
+
+            <label for="budget">Cast</label>
+            <input type="text" 
+             value="{{movie.budget}}" 
+            name="cast" 
+            id="cast" 
+            class="form-control"
+            placeholder="who are the main cast. separate with a comma" />
+
+            <botton type="submit" class="btn btn-sm btn-success mt-3"  />
+
+            <span  class="fa fa-save"></span>
+            Update Movie
+        </botton>
+
+            <a href="/" class=" btn btn-sm btn-primary mt-3">
+                <span class="fa fa-arrow-left"></span>
+                Go back
+            </a>
+          
+          </form>
+
+    </div>
+
+{% endblock %}
